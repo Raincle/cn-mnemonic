@@ -1,9 +1,9 @@
 # cn-mnemonic
-中文助记字(基于6763、2048个高频中文汉字)
+中文助记字(基于6763个高频中文汉字)
 
 ## Motivation
 1. 英文助记词12个过长，BIP39的中文也需12字，有优化空间。
-2. 6763高频汉字，可以缩短助记字个数，方便记忆。
+2. 6763个高频汉字，可以缩短助记字个数，方便记忆。
 3. 因此，作者决定开发基于字频的中文6764进制，缩短助记字至10-11字，将钱包记在脑中成为可能。
 
 ## Features
@@ -21,7 +21,7 @@ $ npm i --save cn-mnemonic
 /*
  *加密解密
  */
-import { getWallet, importMnemonic } from "cn-mnemonic";
+const { getWallet, importMnemonic } = require("cn-mnemonic")
 
 getWallet()
 /*
