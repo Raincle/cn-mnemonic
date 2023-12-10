@@ -25,7 +25,7 @@ export function getWallet() {
     // console.log("\x1B[37m", "\nRandom Arr: ", JSON.stringify(randomArr));
     // console.log("Random Arr Hex: ", JSON.stringify(randomArrHex));
     // console.log("Entropy: ", entropy);
-    console.log("\x1B[31m", "\nMnemonic: ", mnemonic);
+    console.log("\x1B[32m", "\nMnemonic: ", mnemonic);
 
     const privateKey = createHash('sha256').update(entropy).digest('hex')
     const privateKeyBuffer = Buffer.from(privateKey, 'hex');
@@ -34,7 +34,7 @@ export function getWallet() {
     var key = new coinKey(privateKeyBuffer)
     const btcKey = key.privateWif
     const btcAddress = key.publicAddress
-    console.log("\nBTC Wallet: ");
+    console.log("\x1B[37m", "\nBTC Wallet: ");
     console.log("Private Key: ", btcKey);
     console.log("Wallet Address: ", btcAddress);
 
@@ -73,8 +73,17 @@ export function getWallet() {
 
     return {
         mnemonic,
-        privateKey,
-        walletAddress: checksumAddress
+        BTC: {
+            privateKey: btcKey,
+            walletAddress: btcAddress
+        },
+        ETH: {
+            privateKey,
+            walletAddress: checksumAddress
+        },
+        TRON: {
+            privateKey,
+            walletAddress: tronAddress
+        }
     }
-
 }

@@ -8,12 +8,15 @@ const { privateToAddress, toChecksumAddress } = require('ethereumjs-util')
 export function importMnemonic(mnemonic: string) {
     console.log("\nIMPORTING...");
     let decodeEntropy = toNumber(mnemonic, 16)
+    // console.log("decodeEntropy: ", decodeEntropy);
+    
     decodeEntropy = decodeEntropy.length == 32 ? 
     decodeEntropy : 
     Array(32 - decodeEntropy.length).fill(0).join("") + decodeEntropy
+    // console.log("decodeEntropy: ", decodeEntropy);
 
     // nMnemonic
-    console.log("\x1B[31m", "\nMnemonic: ", mnemonic);
+    console.log("\x1B[32m", "\nMnemonic: ", mnemonic);
 
     const decodePrivateKey = createHash('sha256').update(decodeEntropy).digest('hex')
     const privateKeyBuffer = Buffer.from(decodePrivateKey, 'hex');
@@ -22,7 +25,7 @@ export function importMnemonic(mnemonic: string) {
     var key = new coinKey(privateKeyBuffer)
     const btcKey = key.privateWif
     const btcAddress = key.publicAddress
-    console.log("\nBTC Wallet: ");
+    console.log("\x1B[37m", "\nBTC Wallet: ");
     console.log("Private Key: ", btcKey);
     console.log("Wallet Address: ", btcAddress);
 
@@ -44,8 +47,18 @@ export function importMnemonic(mnemonic: string) {
 
     return {
         mnemonic,
-        privateKey: decodePrivateKey,
-        walletAddress: checksumAddress
+        BTC: {
+            privateKey: btcKey,
+            walletAddress: btcAddress
+        },
+        ETH: {
+            privateKey: decodePrivateKey,
+            walletAddress: checksumAddress
+        },
+        TRON: {
+            privateKey: decodePrivateKey,
+            walletAddress: tronAddress
+        }
     }
 
 }
