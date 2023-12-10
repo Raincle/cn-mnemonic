@@ -1,6 +1,7 @@
 // 导入中文助记字
 import { createHash } from 'crypto'
 const coinKey = require('coinkey')
+const tronWeb = require('tronweb')
 const { toNumber } = require("6764-system")
 const { privateToAddress, toChecksumAddress } = require('ethereumjs-util')
 
@@ -31,6 +32,12 @@ export function importMnemonic(mnemonic: string) {
     console.log("\nETH Wallet: ");
     console.log("Private Key: ", decodePrivateKey);
     console.log("Wallet Address: ", checksumAddress);
+
+    // TRON
+    const tronAddress = tronWeb.address.fromPrivateKey(decodePrivateKey)
+    console.log("\nTRON Wallet: ");
+    console.log("Private Key: ", decodePrivateKey);
+    console.log("Wallet Address: ", tronAddress);
 
     console.log("\x1B[32m", "\nDONE!\n");
     console.log("\x1B[37m", "");

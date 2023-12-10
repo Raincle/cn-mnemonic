@@ -24,13 +24,19 @@ getWallet()
 /*
  * GENERATING...
  
- * Random Arr:  ["48","227","93","95","121","216","174","20","91","229","81","87","128","215","5","168"]
- * Random Arr Hex:  ["30","e3","5d","5f","79","d8","ae","14","5b","e5","51","57","80","d7","05","a8"]
- * Entropy:  30e35d5f79d8ae145be5515780d705a8
- 
- * Mnemonic:  纹霁椐佘轸戌禺祺影烁
- * Private Key:  58d0b54e010ab2b4079977dc0a02afc6a076c30eb5e944694f70cc1fa011317f
- * Wallet Address:  0x86d687fe0425569B23aCf7f4EBa08b95e43E9f3b
+ * Mnemonic:  沁剐鹦酲浚虞凰肯鸥攸
+
+ * BTC Wallet: 
+ * Private Key:  KzGHULjUtgHoHmGX7rd441NC8VmQmbdhiiGgjEHv61zRG4hJAXW9
+ * Wallet Address:  1A2it1WnSzkHLCcD8eREqtbFfAtmUj3cxj
+
+ * ETH Wallet: 
+ * Private Key:  5ad618af69163e2a3d6764f93301d4aceaac2ba09df8c17536997b0e426c1a8f
+ * Wallet Address:  0xF33C07a2eb44fF8050Ddd45611E828841CD43d62
+
+ * TRON Wallet: 
+ * Private Key:  5ad618af69163e2a3d6764f93301d4aceaac2ba09df8c17536997b0e426c1a8f
+ * Wallet Address:  TY9K7ctBhgFqHiPXdVdigUeHwhu8V3trcn
  
  * VERIFY...
 
@@ -40,13 +46,23 @@ getWallet()
  * DONE!
  */
 
-importMnemonic("纹霁椐佘轸戌禺祺影烁")
+importMnemonic("沁剐鹦酲浚虞凰肯鸥攸")
 /*
  * IMPORTING...
  
- * Mnemonic:  纹霁椐佘轸戌禺祺影烁
- * Private Key:  58d0b54e010ab2b4079977dc0a02afc6a076c30eb5e944694f70cc1fa011317f
- * Wallet Address:  0x86d687fe0425569B23aCf7f4EBa08b95e43E9f3b
+ * Mnemonic:  沁剐鹦酲浚虞凰肯鸥攸
+
+ * BTC Wallet: 
+ * Private Key:  KzGHULjUtgHoHmGX7rd441NC8VmQmbdhiiGgjEHv61zRG4hJAXW9
+ * Wallet Address:  1A2it1WnSzkHLCcD8eREqtbFfAtmUj3cxj
+
+ * ETH Wallet: 
+ * Private Key:  5ad618af69163e2a3d6764f93301d4aceaac2ba09df8c17536997b0e426c1a8f
+ * Wallet Address:  0xF33C07a2eb44fF8050Ddd45611E828841CD43d62
+
+ * TRON Wallet: 
+ * Private Key:  5ad618af69163e2a3d6764f93301d4aceaac2ba09df8c17536997b0e426c1a8f
+ * Wallet Address:  TY9K7ctBhgFqHiPXdVdigUeHwhu8V3trcn
  
  * DONE!
  */
