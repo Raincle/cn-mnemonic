@@ -1,6 +1,6 @@
 {
   "name": "cn-mnemonic",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "中文助记字(基于6763个高频中文汉字)",
   "main": "./dist/index.js",
   "types": "./src/index.ts",
