@@ -1,5 +1,6 @@
 // 导入中文助记字
 import { createHash } from 'crypto'
+const coinKey = require('coinkey')
 const { toNumber } = require("6764-system")
 const { privateToAddress, toChecksumAddress } = require('ethereumjs-util')
 
@@ -10,13 +11,24 @@ export function importMnemonic(mnemonic: string) {
     decodeEntropy : 
     Array(32 - decodeEntropy.length).fill(0).join("") + decodeEntropy
 
-    const decodePrivateKey = createHash('sha256').update(decodeEntropy).digest('hex')
+    // nMnemonic
+    console.log("\x1B[31m", "\nMnemonic: ", mnemonic);
 
+    const decodePrivateKey = createHash('sha256').update(decodeEntropy).digest('hex')
     const privateKeyBuffer = Buffer.from(decodePrivateKey, 'hex');
+
+    // BTC
+    var key = new coinKey(privateKeyBuffer)
+    const btcKey = key.privateWif
+    const btcAddress = key.publicAddress
+    console.log("\nBTC Wallet: ");
+    console.log("Private Key: ", btcKey);
+    console.log("Wallet Address: ", btcAddress);
+
+    // ETH
     const pubKey = privateToAddress(privateKeyBuffer).toString('hex')
     const checksumAddress = toChecksumAddress(`0x${pubKey}`);
-
-    console.log("\x1B[31m", "\nMnemonic: ", mnemonic);
+    console.log("\nETH Wallet: ");
     console.log("Private Key: ", decodePrivateKey);
     console.log("Wallet Address: ", checksumAddress);
 

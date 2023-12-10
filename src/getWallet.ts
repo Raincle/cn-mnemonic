@@ -1,5 +1,6 @@
 // 生成钱包
 import { createHash } from 'crypto'
+const coinKey = require('coinkey')
 const { to6764, toNumber } = require("6764-system")
 const { privateToAddress, toChecksumAddress } = require('ethereumjs-util')
 
@@ -17,17 +18,29 @@ export function getWallet() {
         randomArrHex.push(hex)
     }
 
+    // nMnemonic
     const entropy = randomArrHex.join("")
     const mnemonic = to6764(entropy, 16)
+    // console.log("\x1B[37m", "\nRandom Arr: ", JSON.stringify(randomArr));
+    // console.log("Random Arr Hex: ", JSON.stringify(randomArrHex));
+    // console.log("Entropy: ", entropy);
+    console.log("\x1B[31m", "\nMnemonic: ", mnemonic);
+
     const privateKey = createHash('sha256').update(entropy).digest('hex')
     const privateKeyBuffer = Buffer.from(privateKey, 'hex');
+
+    // BTC
+    var key = new coinKey(privateKeyBuffer)
+    const btcKey = key.privateWif
+    const btcAddress = key.publicAddress
+    console.log("\nBTC Wallet: ");
+    console.log("Private Key: ", btcKey);
+    console.log("Wallet Address: ", btcAddress);
+
+    // ETH
     const pubKey = privateToAddress(privateKeyBuffer).toString('hex')
     const checksumAddress = toChecksumAddress(`0x${pubKey}`);
-
-    console.log("\x1B[37m", "\nRandom Arr: ", JSON.stringify(randomArr));
-    console.log("Random Arr Hex: ", JSON.stringify(randomArrHex));
-    console.log("Entropy: ", entropy);
-    console.log("\x1B[31m", "\nMnemonic: ", mnemonic);
+    console.log("\nETH Wallet: ");
     console.log("Private Key: ", privateKey);
     console.log("Wallet Address: ", checksumAddress);
 

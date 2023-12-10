@@ -1,6 +1,6 @@
 {
   "name": "cn-mnemonic",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "中文助记字(基于6763个高频中文汉字)",
   "main": "./dist/index.js",
   "types": "./src/index.ts",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/node": "^18.0.3",
     "6764-system": "^1.0.4",
+    "coinkey": "^3.0.0",
     "ethereumjs-util": "^7.1.5"
   }
 }
